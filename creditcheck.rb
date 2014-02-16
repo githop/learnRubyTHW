@@ -6,12 +6,13 @@ class CreditCard
 	end
 
 	def check_card(number)
+		arr = []
 		even = []
 		odd = []
+		arr << @number.to_s.split('')
 
 		
-		puts @number.to_s
-
+		print arr
 	end
 
 
