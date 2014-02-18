@@ -1,6 +1,6 @@
 class Drawer
 
-attr_reader :contents
+attr_accessor :contents
 
 # Are there any more methods needed in this class?
 
@@ -17,7 +17,7 @@ attr_reader :contents
 		@open = false
 	end 
 
-	def add_item
+	def add_item(item)
 		@contents << item
 	end
 
@@ -27,6 +27,7 @@ attr_reader :contents
 
 	def dump  # what should this method return?
 		puts "Your drawer is empty."
+		@contents = []
 	end
 
 	def view_contents
@@ -45,11 +46,24 @@ class Silverware
 		@clean = clean
 	end
 
+	def clean_silverware
+		@clean = true
+	end
+
+
 	def eat
 		puts "eating with the #{type}"
 		@clean = false
 	end
 
+	def clean?
+		return true if @clean == true
+		if @clean != true
+			puts "This #{type} is dirty."
+		else
+			puts "this #{type} is clean"
+		end
+	end
 	
 end
 
@@ -80,10 +94,11 @@ silverware_drawer.view_contents #What should this return?
 
 
 fork = silverware_drawer.remove_item(fork) #add some puts statements to help you trace through the code...
+fork = Silverware.new("fork")
 fork.eat
 
 #BONUS SECTION
-# puts fork.clean
+puts fork.clean?
 
 
 
