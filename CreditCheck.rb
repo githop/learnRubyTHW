@@ -6,7 +6,6 @@ class CreditCard
 	end
 
 	def check_card(number)
-<<<<<<< HEAD
 		arr = @number.to_s.split('')
 		
 		check = arr.reverse.map.with_index {|item, index| 
@@ -23,15 +22,6 @@ class CreditCard
 		return true if sum % 10 == 0
 
 		
-=======
-		arr = []
-		even = []
-		odd = []
-		arr << @number.to_s.split('')
-
-		
-		print arr
->>>>>>> ac5dc6bb5d9df5ae0bcf988e85a5d4c6b23fdcff
 	end
 
 
