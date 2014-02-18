@@ -17,7 +17,7 @@ attr_reader :contents
 		@open = false
 	end 
 
-	def add_item()
+	def add_item
 		@contents << item
 	end
 
