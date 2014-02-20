@@ -57,7 +57,6 @@ class Silverware
 	end
 
 	def clean?
-		return true if @clean == true
 		if @clean != true
 			puts "This #{type} is dirty."
 		else
