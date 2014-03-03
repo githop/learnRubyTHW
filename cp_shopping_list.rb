@@ -21,7 +21,7 @@ class List
 
     def see_list
       puts "My grocery list:"
-      puts items
+      puts @items
     end
 end
  
