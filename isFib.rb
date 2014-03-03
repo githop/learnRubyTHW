@@ -1,23 +1,11 @@
-def is_fib?(i)
-<<<<<<< HEAD
-	a =  Math.sqrt(5*(i**2) + 4)
-	b = Math.sqrt(5*(i**2) - 4)
-	
-	if (a % 1 == 0 || b % 1 == 0)
-=======
-	a =  Math.sqrt(5*i**2 + 4)
-	b = Math.sqrt(5*i**2 - 4)
-	if (a.to_s.include? ".0") || (b.to_s.include? ".0")
->>>>>>> ac5dc6bb5d9df5ae0bcf988e85a5d4c6b23fdcff
-		return true
-	else
-		return false
-	end
-<<<<<<< HEAD
-
-	
-
-
+def is_fibonacci?(i, a = 0, b = 1)  
+  if i == a || i == b
+    return true
+  elsif b > i
+    return false
+  else
+    is_fibonacci?(i, b, a + b)
+  end
 end
 
 
