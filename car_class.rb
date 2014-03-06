@@ -111,7 +111,8 @@ Would you like to turn right? y/n"""
       end
     distance(1.4)
     puts "Congratulations!! You've Arrived at your destination!!"
-    puts "Total trip distance was #{show_distance} miles!"  
+    puts "Total trip distance was #{show_distance} miles!" 
+    Process.exit(0) 
   end
 end
 
