@@ -38,7 +38,7 @@ Anyway, off you go now!"""
   
   def garage()
     puts "First you need a CAHHRR! I prefer a humvee myself, what kind of car do you have?"
-    puts "Make?"
+    puts "Make? (type it in silly!)"
     u_car_make = gets.chomp
     puts "Color?"
     u_car_col = gets.chomp
