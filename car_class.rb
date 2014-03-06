@@ -15,10 +15,10 @@ class Car
  
   def play()
     next_step = @start
-    while true
-      step = method(next_step)
-      next_step = step.call() 
-    end
+      while true
+	step = method(next_step)
+	next_step = step.call() 
+      end
   end
  
   def show_distance
@@ -33,7 +33,7 @@ class Car
     puts """Welcome to Aahrnold's Pizza Delivery. Where we GET PIZZA TO DA CHOPPA!!
 Or just houses mostly, we rarely get chopper deliveries these days.
 Anyway, off you go now!"""
-    return :garage
+    :garage
   end
   
   def garage()
@@ -43,7 +43,7 @@ Anyway, off you go now!"""
     puts "Color?"
     u_car_col = gets.chomp
     u_car = new_car(u_car_make, u_car_col)
-   return :drive
+    :drive
   end  
 
   def drive
@@ -55,27 +55,28 @@ The speed limit here is 25 mph."""
 	puts "Easy there, coyboy"
 	@speed = gets.chomp.to_i
       end
-    return :stop1 
-end
-    def stop1
-      puts  """[aGPS (Aahrold's GPS) CURRENT SPEED #{@speed}]: 'APPROACHING TURN, GET TO DA: turn right! 
+    :stop1 
+  end 
+
+  def stop1
+    puts  """[aGPS (Aahrold's GPS) CURRENT SPEED #{@speed}]: 'APPROACHING TURN, GET TO DA: turn right! 
 Would you like to turn right? y/n"""
-      distance(0.25)
-      response = gets.chomp.downcase
-	while response != 'y'
-	  puts "You're going to have a bad time..."
-	  response = gets.chomp
-	end
-      puts "Nice job with the turn, great form" 
-      puts "[aGPS]: GET TO DA: continue straight 1.5 miles!"
-      puts "Current Speed limit is 35 mph, enter speed: "
-      @speed = gets.chomp.to_i
-	while @speed > 35
-	  puts "don't push it!"
-	  @speed = gets.chomp.to_i 
-	end
-      distance(1.5)
-      :school_zone
+    distance(0.25)
+    response = gets.chomp.downcase
+      while response != 'y'
+	puts "You're going to have a bad time..."
+	response = gets.chomp
+      end
+    puts "Nice job with the turn, great form" 
+    puts "[aGPS]: GET TO DA: continue straight 1.5 miles!"
+    puts "Current Speed limit is 35 mph, enter speed: "
+    @speed = gets.chomp.to_i
+      while @speed > 35
+	puts "don't push it!"
+	@speed = gets.chomp.to_i 
+      end
+    distance(1.5)
+    :school_zone
   end
 
   def school_zone
