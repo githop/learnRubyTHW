@@ -37,12 +37,13 @@ Anyway, off you go now!"""
   end
   
   def garage()
-    puts """First you need a CAHHRR! I prefer a humvee myself, what kind of car do you have?"""
+    puts "First you need a CAHHRR! I prefer a humvee myself, what kind of car do you have?"
     puts "Make?"
     u_car_make = gets.chomp
     puts "Color?"
     u_car_col = gets.chomp
-    u_car = new_car(u_car_make, u_car_col)
+    u_car = new_car(u_car_make, u_car_col) 
+    puts "Ah a #{@make}, not my first choice, but the pizzas won't mind." 
     :drive
   end  
 
@@ -61,12 +62,12 @@ The speed limit here is 25 mph."""
   def stop1
     puts  """[aGPS (Aahrold's GPS) CURRENT SPEED #{@speed}]: 'APPROACHING TURN, GET TO DA: turn right! 
 Would you like to turn right? y/n"""
-    distance(0.25)
     response = gets.chomp.downcase
       while response != 'y'
 	puts "You're going to have a bad time..."
 	response = gets.chomp
       end
+    distance(0.25)
     puts "Nice job with the turn, great form" 
     puts "[aGPS]: GET TO DA: continue straight 1.5 miles!"
     puts "Current Speed limit is 35 mph, enter speed: "
@@ -80,8 +81,7 @@ Would you like to turn right? y/n"""
   end
 
   def school_zone
-    puts "[aGPS]: SLOW DOHHWNNN!CURRENT SPEED: #{@speed} ENTERING
- SCHOOL ZONE! REDUCE SPEED TO 15 MPH "
+    puts "[aGPS]: SLOW DOHHWNNN!CURRENT SPEED: #{@speed} ENTERING SCHOOL ZONE! REDUCE SPEED TO 15 MPH"
     puts "Enter Reduced speed: "
     @speed = gets.chomp.to_i
       while @speed > 15
