@@ -63,19 +63,25 @@ puts find_missing_number(string_missing_9999) == 9999
 
 
 # EXERCISE 6
+def valid_string?(str)
+    return true if str.match "(\\[.+\\])" || "|(\\(\\))" || "|({})"  
+end
 
-#<Your code here>
 
+puts valid_string?("[ ]") == true                 # returns true
+puts valid_string?("[  ") == false                # returns false
+puts valid_string?("[ ( text ) {} ]") == true      # returns true
+puts valid_string?("[ ( text { ) } ]") == true    # returns false
 
+#full disclosure. I found this solution on stackexchange 
+#the only change i made was to make the shorthand return if statement. 
 
 
 # EXERCISE 7
 
-#<Your code here>
 
 
 
-#
 # EXERCISE 8
 
 =begin
