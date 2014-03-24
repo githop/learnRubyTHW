@@ -69,7 +69,7 @@ puts find_missing_number(string_missing_9999) == 9999
 
 # EXERCISE 6
 def valid_string?(str)
-    return true if str.match "(\\[.+\\])" || "|(\\(\\))" || "|({})"  
+  return true if str.match "(\\[.+\\])" || "|(\\(\\))" || "|({})"  
 end
 
 puts "\nex6"
@@ -83,7 +83,64 @@ puts valid_string?("[ ( text { ) } ]") == true    # returns false
 
 
 # EXERCISE 7
+class House
+  def initialize(current_temp, minimum_temp, maximum_temp) 
+    @current_temp = current_temp
+    @minimum_temp = minimum_temp
+    @maximum_temp = maximum_temp
+    @ac_on = false
+    @heater_on = false
+  end
 
+  attr_reader :heater_on, :ac_on, :current_temp
+
+  def toggle_heater
+    if @heater_on == false and @ac_on == false
+      @heater_on = true
+    else
+      @heater_on = false
+    end
+  end
+
+  def toggle_ac
+    if @ac_on == false and @heater_on == false
+      @ac_on = true
+    else
+      @ac_on = false
+    end
+  end
+
+  def update_temp!
+
+    if @current_temp > @maximum_temp
+      if @ac_on == false and @heater_on == true 
+	@ac_on = true
+	@heater_on = false  
+	@current_temp += 2
+      elsif @ac_on == true and @heater_on == false
+	@ac_on = false
+	@heater_on = true
+	@current_temp -= 1
+      end
+    elsif @current_temp < @maximum_temp
+      if @ac_on == true and @heater_on == false
+	@ac_on = false
+	@heater_on = true
+	@current_temp -= 1
+      elsif @ac_on == false and @heater_on == true 
+	@ac_on = true
+	@heater_on = false
+	@current_temp += 2
+      end
+    else
+      @current_temp
+    end
+
+
+  end
+end  
+
+my_house = House.New(70, 68, 72) 
 
 
 
@@ -102,9 +159,9 @@ puts valid_string?("[ ( text { ) } ]") == true    # returns false
 	  case x
 	    when /\d/
 	      evaluation.push(x.to_f)
-            when "-", "/", "*", "+", "**"
+	    when "-", "/", "*", "+", "**"
 	      operands = evaluation.pop(2)
-              evaluation.push(operands[0].send(x, operands[1]))
+	      evaluation.push(operands[0].send(x, operands[1]))
 	    end
 	end
 	return evaluation.pop
