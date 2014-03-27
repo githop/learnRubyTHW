@@ -1,35 +1,24 @@
-function sumArray(arr) {
-  var counter = 0; 
+function average(arr) {
+  var sum = 0;
   for (var i = 0; i < arr.length; i++) {
-    counter += arr[i]; 
+    sum += arr[i]; 
   }
-  return counter; 
+  return (sum / arr.length); 
 }
 
-var test = [1,2,3]; 
+var gradebook = {
+ Joseph: {'testScores': [80,70,70,100] }, 
+  Susan: {'testScores': [85, 80, 90, 90] },
+  William: {'testScores': [75, 70, 80, 75]},
+  Elizabeth: {'testScores': [100, 90, 95, 85]},
+  addScore: function(name, score) {
+    return gradebook[name].testScores.push(score);   
+    },
+  getAverage: function(name) {
+    return average(gradebook[name].testScores); 
+    }
+  } 
 
+gradebook.addScore("William", 59);
 
-function medianArray(arr) {
-  if (arr.length % 2 == 0){
-    return (arr[arr.length / 2 - 1] + arr[arr.length / 2]) / 2; 
-  } else {
-    return arr[(arr.length - 1) / 2] ; 
-  }
-}
-
-
-
-function meanArray(arr) {
-  var counter = 0; 
-  for (var i = 0; i < arr.length; i++) {
-    counter += arr[i]; 
-  }
-  return (counter / arr.length); 
-}
-
-
-console.log("Median: " + medianArray(test));
-console.log("Mean: " + meanArray(test)); 
-console.log("Sum: " + sumArray(test));
-
-
+console.log(gradebook.getAverage("Susan"));
