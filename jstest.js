@@ -7,10 +7,10 @@ function average(arr) {
 }
 
 var gradebook = {
- Joseph: {'testScores': [80,70,70,100] }, 
-  Susan: {'testScores': [85, 80, 90, 90] },
-  William: {'testScores': [75, 70, 80, 75]},
-  Elizabeth: {'testScores': [100, 90, 95, 85]},
+ Joseph: {'testScores': scores[0] }, 
+  Susan: {'testScores': scores[1] },
+  William: {'testScores': scores[2]},
+  Elizabeth: {'testScores': scores[3]},
   addScore: function(name, score) {
     return gradebook[name].testScores.push(score);   
     },
